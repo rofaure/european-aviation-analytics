@@ -216,3 +216,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Data files (trop lourds pour Git)
+data/raw/
+*.parquet
+*.csv.bz2
+*.xlsx
+
+# Credentials
+.env
+config/secrets.json
+*.pem
+*.key
+
+# Fabric / Jupyter
+.ipynb_checkpoints/
+*.ipynb_metadata
+
+# Power BI temp files
+*.pbix.lock
