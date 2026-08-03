@@ -1,0 +1,56 @@
+{
+  "lakehouse": {
+    "name": "EAA_LakeHouse",
+    "warehouse": "EAA_Gold",
+    "schemas": {
+      "bronze": "bronze",
+      "silver": "silver"
+    }
+  },
+
+  "sources": {
+    "atfm_delay": {
+      "url_pattern": "https://www.eurocontrol.int/performance/data/download/csv/apt_dly_{year}.csv.bz2",
+      "fallback_url_pattern": "https://www.sesperformance.eu/download/csv/apt_dly_{year}.csv.bz2",
+      "format": "csv_bz2",
+      "bronze_table": "apt_dly",
+      "load_type": "incremental_year"
+    },
+    "airport_traffic": {
+      "url_pattern": "https://www.eurocontrol.int/performance/data/download/csv/airport_traffic_{year}.csv",
+      "format": "csv",
+      "bronze_table": "airport_traffic",
+      "load_type": "incremental_year"
+    },
+    "opdi_flight_list": {
+      "url_pattern": "https://www.eurocontrol.int/performance/data/download/OPDI/v002/flight_list/flight_list_{YYYYMM}.parquet",
+      "format": "parquet",
+      "bronze_table": "opdi_flight_list",
+      "load_type": "incremental_month"
+    },
+    "dim_airport_ref": {
+      "url": "https://ourairports.com/data/airports.csv",
+      "format": "csv",
+      "bronze_table": "dim_airport_raw",
+      "load_type": "one_time"
+    },
+    "dim_airline_ref": {
+      "url": "https://raw.githubusercontent.com/benct/iata-utils/master/generated/iata_airlines.csv",
+      "format": "csv",
+      "bronze_table": "dim_airline_raw",
+      "load_type": "one_time"
+    },
+    "lcc_network_lookup": {
+      "path": "Files/config/lcc_network_lookup.csv",
+      "format": "csv",
+      "bronze_table": "lcc_network_lookup",
+      "load_type": "one_time"
+    }
+  },
+
+  "last_loaded": {
+    "atfm_delay_year": 2018,
+    "airport_traffic_year": 2018,
+    "opdi_month": "202112"
+  }
+}
