@@ -24,12 +24,14 @@ european-aviation-analytics/
 │   │   ├── bronze_opdi_flights.ipynb  # OPDI flight list Parquet → Bronze
 │   │   ├── bronze_our_airports.ipynb  # OurAirports reference CSV → Bronze
 │   │   └── bronze_iata_airlines.ipynb # IATA airlines reference CSV → Bronze
+│   │   └── bronze_mapping_airlines.ipynb # manually creating mapping of ICAO airlines and airlines names → Bronze
 │   │
 │   ├── 02_silver_clean/
 │   │   ├── silver_atfm_delay.ipynb    # Clean + validate ATFM delay
 │   │   ├── silver_airport_traffic.ipynb # Clean + validate airport traffic
 │   │   ├── silver_opdi_flights.ipynb  # Clean + validate flight list
 │   │   └── silver_dim_airport.ipynb   # SCD2 airport dimension
+│   │   └── silver_dim_airline.ipynb   # Carrier_type
 │   │
 │   ├── 03_gold_model/
 │   │   ├── gold_network_performance.ipynb  # fact_network_performance (airport × month)
