@@ -23,7 +23,7 @@ Fields to be passed to WriteLog:
         log_folder=where to put the logs - i've set it to /Files/data/log ( "/lakehouse/default/Files/data/log" )
 ```
 Example from reference_loader log call
-```
+```python
 log_path = write_log(
         source_name,
         file_name,
